@@ -1,7 +1,11 @@
 import React from 'react'
 
-import { Header } from '~/components'
+import { Layout, Meals } from '~/components'
 
-const App = () => <Header />
+const App = () => (
+  <Layout>
+    <Meals />
+  </Layout>
+)
 
 export default App

@@ -1,2 +1,3 @@
 export * from './Cart'
-export * from './Layout'
+export { default as Layout } from './Layout'
+export { default as Meals } from './Meals'
