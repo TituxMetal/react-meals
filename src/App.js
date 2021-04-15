@@ -1,5 +1,7 @@
 import React from 'react'
 
-const App = () => <h1>React Meals</h1>
+import { Header } from '~/components'
+
+const App = () => <Header />
 
 export default App
