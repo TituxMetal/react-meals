@@ -1,6 +1,9 @@
 import React from 'react'
 
+import { Card } from '~/components/UI'
+
 import './Available.css'
+import Item from './Item'
 
 const DUMMY_MEALS = [
   {
@@ -30,11 +33,15 @@ const DUMMY_MEALS = [
 ]
 
 const Available = () => {
-  const mealsList = DUMMY_MEALS.map(({ id, name }) => <li key={id}>{name}</li>)
+  const mealsList = DUMMY_MEALS.map(({ id, name, description, price }) => (
+    <Item key={id} name={name} description={description} price={price} />
+  ))
 
   return (
     <section className='meals'>
-      <ul>{mealsList}</ul>
+      <Card>
+        <ul>{mealsList}</ul>
+      </Card>
     </section>
   )
 }
