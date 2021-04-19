@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { Cart, Layout, Meals } from '~/components'
-import { ModalContext } from '~/context'
+import { CartProvider, ModalContext } from '~/context'
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -9,10 +9,12 @@ const App = () => {
 
   return (
     <ModalContext.Provider value={{ isOpen, toggleModalHandler }}>
-      <Layout>
-        {isOpen && <Cart />}
-        <Meals />
-      </Layout>
+      <CartProvider>
+        <Layout>
+          {isOpen && <Cart />}
+          <Meals />
+        </Layout>
+      </CartProvider>
     </ModalContext.Provider>
   )
 }
