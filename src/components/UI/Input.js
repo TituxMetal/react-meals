@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 import './Input.css'
 
-const Input = ({ id, label, ...rest }) => (
+const Input = ({ id, label, ...rest }, ref) => (
   <div className='input'>
     <label htmlFor={id}>{label}</label>
-    <input id={id} {...rest} />
+    <input id={id} ref={ref} {...rest} />
   </div>
 )
 
-export default Input
+Input.displayName = 'Input'
+
+export default forwardRef(Input)
