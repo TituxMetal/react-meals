@@ -34,7 +34,13 @@ const DUMMY_MEALS = [
 
 const Available = () => {
   const mealsList = DUMMY_MEALS.map(({ id, name, description, price }) => (
-    <Item key={id} name={name} description={description} price={price} />
+    <Item
+      key={id}
+      name={name}
+      description={description}
+      price={price}
+      id={id}
+    />
   ))
 
   return (
