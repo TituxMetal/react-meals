@@ -1,30 +1,40 @@
 import React, { useContext } from 'react'
 
 import { Modal } from '~/components/UI'
-import { ModalContext } from '~/context'
+import { CartContext, ModalContext } from '~/context'
 
-import './CartItems.css'
+import CartItem from './CartItem'
+
+import './Cart.css'
 
 const Cart = () => {
-  const cartItems = [{ id: 'c1', name: 'Sushi', amount: 2, price: 12.99 }]
+  const { items, totalAmount, addItemHandler, removeItemHandler } = useContext(
+    CartContext
+  )
   const { toggleModalHandler } = useContext(ModalContext)
+  const hasItems = items.length > 0
 
   return (
     <Modal>
       <ul className='cart-items'>
-        {cartItems.map(item => (
-          <li key={item.id}>{item.name}</li>
+        {items.map(item => (
+          <CartItem
+            key={item.id}
+            onAdd={addItemHandler}
+            onRemove={removeItemHandler}
+            item={item}
+          />
         ))}
       </ul>
       <div className='total'>
         <span>Total Amount</span>
-        <span>35.62</span>
+        <span>${totalAmount.toFixed(2)}</span>
       </div>
       <div className='actions'>
         <button className='button--alt' onClick={toggleModalHandler}>
           Close
         </button>
-        <button className='button'>Order</button>
+        {hasItems && <button className='button'>Order</button>}
       </div>
     </Modal>
   )
