@@ -1,7 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import './index.css'
+import { GlobalStyle } from '~/core'
+
 import App from './App'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+const element = document.getElementById('root')
+ReactDOM.render(
+  <GlobalStyle>
+    <App />
+  </GlobalStyle>,
+  element
+)
