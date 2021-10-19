@@ -1,19 +1,27 @@
 import React from 'react'
+import tw, { styled } from 'twin.macro'
 
 import mealsImage from '~/assets/meals.jpg'
 
-import './Header.module.css'
 import HeaderCartButton from './HeaderCartButton'
+
+const Brand = styled.h1(tw`px-4 text-xl font-bold`)
+const Head = styled.header(() => [
+  tw`bg-red-800 text-gray-50 flex justify-between items-center p-0 shadow-lg z-10`,
+  tw`fixed top-0 left-0 w-full h-20`
+])
+const Image = styled.img(tw`w-full h-full object-cover`)
+const ImgContainer = styled.div(tw`w-full h-96 z-0 overflow-hidden`)
 
 const Header = () => (
   <>
-    <header className='header'>
-      <h1>ReactMeals</h1>
+    <Head>
+      <Brand>ReactMeals</Brand>
       <HeaderCartButton />
-    </header>
-    <div className='main-image'>
-      <img src={mealsImage} alt='A table full of delicious food!' />
-    </div>
+    </Head>
+    <ImgContainer>
+      <Image src={mealsImage} alt='A table full of delicious food!' />
+    </ImgContainer>
   </>
 )
 
