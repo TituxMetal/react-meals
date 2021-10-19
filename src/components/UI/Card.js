@@ -1,7 +1,5 @@
-import React from 'react'
+import tw from 'twin.macro'
 
-import './Card.css'
-
-const Card = ({ children }) => <div className='card'>{children}</div>
+const Card = tw.div`shadow-md rounded-xl bg-gray-50 p-4`
 
 export default Card
