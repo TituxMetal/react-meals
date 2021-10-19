@@ -1,9 +1,30 @@
 import React from 'react'
+import { keyframes } from 'styled-components'
+import tw, { css, styled } from 'twin.macro'
 
 import { Card } from '~/components/UI'
 
-import './Available.css'
 import Item from './Item'
+
+const appearAnimation = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`
+
+const Items = styled.ul(tw`list-none m-0 p-0`)
+const Wrapper = styled.section(() => [
+  tw`max-w-4xl w-11/12 my-8 mx-auto`,
+  css`
+    animation: ${appearAnimation} 600ms ease-out forwards;
+  `
+])
 
 const DUMMY_MEALS = [
   {
@@ -34,21 +55,15 @@ const DUMMY_MEALS = [
 
 const Available = () => {
   const mealsList = DUMMY_MEALS.map(({ id, name, description, price }) => (
-    <Item
-      key={id}
-      name={name}
-      description={description}
-      price={price}
-      id={id}
-    />
+    <Item key={id} name={name} description={description} price={price} id={id} />
   ))
 
   return (
-    <section className='meals'>
+    <Wrapper>
       <Card>
-        <ul>{mealsList}</ul>
+        <Items>{mealsList}</Items>
       </Card>
-    </section>
+    </Wrapper>
   )
 }
 
