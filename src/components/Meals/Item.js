@@ -6,9 +6,9 @@ import { CartContext } from '~/context'
 import MealForm from './MealForm'
 
 const MealItem = styled.section(tw`flex justify-between m-4 pb-4 border-b-2 border-gray-300`)
-const Text = styled.p(({ bold, color, italic, xl }) => [
+const Text = styled.p(({ bold, colored, italic, xl }) => [
   bold && tw`font-bold`,
-  color && tw`text-orange-700`,
+  colored && tw`text-orange-700`,
   italic && tw`italic`,
   xl && tw`text-xl`
 ])
@@ -25,7 +25,7 @@ const Item = ({ id, name, description, price }) => {
       <Wrapper>
         <Text>{name}</Text>
         <Text italic>{description}</Text>
-        <Text bold xl color>
+        <Text colored bold xl>
           $ {price.toFixed(2)}
         </Text>
       </Wrapper>
