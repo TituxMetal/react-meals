@@ -17,8 +17,8 @@ const slidedownAnimation = keyframes`
 `
 const backdropStyle = [tw`fixed top-0 left-0 w-full h-screen z-20`, tw`bg-gray-900 opacity-75`]
 const modalStyle = [
-  tw`fixed top[10vh] left[10vw] p-4 width[80vw]`,
-  tw`z-30 shadow-md rounded-xl bg-gray-50`,
+  tw`fixed p-4 top[8vh] left[10vw] width[80vw] max-height[88vh] overflow-y-auto`,
+  tw`z-30 shadow-md bg-gray-50`,
   css`
     animation: ${slidedownAnimation} 500ms ease-out forwards;
   `
